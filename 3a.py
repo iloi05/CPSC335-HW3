@@ -13,7 +13,7 @@ def L_or_R(left, right):
 
 def main():
     left = [1, 2, 3, 4, 5]
-    right = [1, 2, 0, 4, 5]
+    right = [1, 2, 0, 4, 5, 6]
     result = L_or_R(left, right)
     print(result)
 
