@@ -1,9 +1,19 @@
+
+/* Name: Ivy Loi
+Date: 4/24/2026
+Homework 3, Problem 1a
+CPSC 335 section 10
+*/
+
 #include <iostream>
 #include <list>
 
 std::list<int> reverse_list(const std::list<int>& lst) {
    std::list<int> reversed;
+   // Iterate through the original list
+   //and insert each element at the beginning of the reversed list
    for (const auto& l : lst) {
+    // Insert the current element at the beginning of the reversed list
         reversed.insert(reversed.begin(), l);
    }
    return reversed;
