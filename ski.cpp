@@ -8,6 +8,7 @@ CPSC 335 section 10
 bool skiCost(int days, int skiRental, int skiPurchase) {
     // Calculate the total cost of renting skis for the given number of days
     int totalRentalCost = 0;
+    // Loop through each day and add the rental cost for that day to the total
     for (int i = 0; i < days; i++) {
         totalRentalCost += skiRental;
     }
