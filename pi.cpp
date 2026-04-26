@@ -29,18 +29,22 @@ int main() {
     
     if (result) {
         auto [x, y, z] = *result;
-        std::cout << "Found triple: (" << x << ", " << y << ", " << z << ")\n";
+        std::cout << "Found triple: (" << x << ", " << y << ", " << z << ")"
+                  << std::endl;
     } else {
-        std::cout << "No triple found in the range [" << a << ", " << b << ")\n";
+        std::cout << "No triple found in the range [" << a << ", " << b << ")"
+                  << std::endl;
     }
 
     int c = 20, d = 50;
     auto result2 = triplePi(c, d);
     if (result2) {
         auto [x, y, z] = *result2;
-        std::cout << "Found triple: (" << x << ", " << y << ", " << z << ")\n";
+        std::cout << "Found triple: (" << x << ", " << y << ", " << z << ")"
+                  << std::endl;
     } else {
-        std::cout << "No triple found in the range [" << c << ", " << d << ")\n";
+        std::cout << "No triple found in the range [" << c << ", " << d << ")"
+                  << std::endl;
     }
     
     return 0;

@@ -30,7 +30,7 @@ int main() {
     for (const auto& l : lst) {
         std::cout << l << " ";
     }
-    std::cout << "\nReversed list: ";
+    std::cout << std::endl << "Reversed list: ";
     for (const auto& l : reversed_lst) {
         std::cout << l << " ";
     }
@@ -42,7 +42,7 @@ int main() {
     for (const auto& l : list2) {
         std::cout << l << " ";
     }
-    std::cout << "\nReversed list: ";
+    std::cout << std::endl << "Reversed list: ";
     for (const auto& l : reversed_list2) {
         std::cout << l << " ";
     }
