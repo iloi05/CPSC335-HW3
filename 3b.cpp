@@ -5,31 +5,23 @@ CPSC 335 section 10
 */
 #include <iostream>
 #include <list>
-#include <algorithm>
-std::list<int> LOrR(std::list<int> L, std::list<int> R) {
-    std::list<int> S;
-// Iterate through list L and add elements that are not in R to S
-    for (int i : L) {
-        if (std::find(R.begin(), R.end(), i) == R.end()) {
-// If the element i from L is not found in R, add it to S
-            S.push_back(i);
-        }
-    }
-// Iterate through list R and add elements that are not in L to S
-    for (int i : R) {
-        if (std::find(L.begin(), L.end(), i) == L.end()) {
-// If the element i from R is not found in L, add it to S
-            S.push_back(i);
-        }
-    }
-    return S;
+#include <unordered_set>
 
+std::list<int> setDifference(const std::list<int>& L, const std::list<int>& R) {
+    std::unordered_set<int> hashR(R.begin(), R.end()); // Create a hash set from list R for O(1) lookups
+    std::list<int> difference;
+    for (int l : L) {
+        if (hashR.find(l) == hashR.end()) {
+            difference.push_back(l);
+        }
+    }
+    return difference;
 }
 
 int main() {
     std::list<int> L = {1, 2, 3, 4, 5};
     std::list<int> R = {4, 5, 6, 7, 8};
-    std::list<int> S = LOrR(L, R);
+    std::list<int> S = setDifference(L, R);
     for (int i : S) {
         std::cout << i << " ";
     }

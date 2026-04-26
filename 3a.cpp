@@ -6,36 +6,24 @@ CPSC 335 section 10
 
 #include <iostream>
 #include <list>
-#include <set>
+#include <unordered_set>
 
-bool has(const std::list<int>& lst, int value) {
-    for (int i : lst) {
-        if (i == value) {
-            return true;
-        }
-    }
-    return false;
-}
-
-std::list<int> LOrR(std::list<int> L, std::list<int> R) {
+std::list<int> LOrR(const std::list<int>& L, const std::list<int>& R) {
+    std::unordered_set<int> visited;
     std::list<int> S;
-// Iterate through list L and add elements that are not in R to S
-    for (int i : L) {
-// If the element i from L is not found in R and has not been added to S,
-// add it to S
-        if (!has(R, i)) {
-            S.push_back(i);
+
+    for(int l : L) {
+        if (visited.find(l) == visited.end()) {
+            S.push_back(l);
+            visited.insert(l);
         }
     }
-// Iterate through list R and add elements that are not in L to S
-    for (int i : R) {
-// If the element i from R is not found in L and has not been added to S,
-// add it to S
-        if (!has(L, i)) {
-            S.push_back(i);
+    for(int r : R) {
+        if (visited.find(r) == visited.end()) {
+            S.push_back(r);
+            visited.insert(r);
         }
     }
-// Return the list S containing elements that are in L or R but not in both
     return S;
 }
 int main() {
