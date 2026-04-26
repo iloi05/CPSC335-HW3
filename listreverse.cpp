@@ -10,11 +10,14 @@ CPSC 335 section 10
 
 std::list<int> reverse_list(const std::list<int>& lst) {
    std::list<int> reversed;
-   // Iterate through the original list
-   //and insert each element at the beginning of the reversed list
-   for (const auto& l : lst) {
-    // Insert the current element at the beginning of the reversed list
-        reversed.insert(reversed.begin(), l);
+   std::list<int> temp = lst; // Create a copy of the original list to iterate through
+   while(!temp.empty()) {
+        auto last_element = temp.begin(); // Get the first element of the temp list (which is the last element of the original list)
+        for (auto it = temp.begin(); it != temp.end(); ++it) {
+            last_element = it; // Update last_element to the current element in the iteration
+        }
+        reversed.push_back(*last_element); // Add the last element to the reversed list
+        temp.erase(last_element); // Remove the last element from the temp list
    }
    return reversed;
 }

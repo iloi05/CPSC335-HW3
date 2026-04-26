@@ -7,7 +7,10 @@ CPSC 335 section 10
 
 bool skiCost(int days, int skiRental, int skiPurchase) {
     // Calculate the total cost of renting skis for the given number of days
-    int totalRentalCost = days * skiRental;
+    int totalRentalCost = 0;
+    for (int i = 0; i < days; i++) {
+        totalRentalCost += skiRental;
+    }
     // Compare the total rental cost with the purchase cost
     if (totalRentalCost < skiPurchase) {
         // If renting is cheaper, return true
@@ -21,11 +24,12 @@ int main() {
     int days = 5;
     int skiRental = 100;
     int skiPurchase = 250;
-
+    int rentCost = days * skiRental;
     if (skiCost(days, skiRental, skiPurchase)) {
-        std::cout << "It is cheaper to rent skis." << std::endl;
+        std::cout << "It is cheaper to rent skis for " << days << " days"
+                  << " for $" << rentCost << std::endl;
     } else {
-        std::cout << "It is cheaper to purchase skis." << std::endl;
+        std::cout << "It is cheaper to purchase skis for $" << skiPurchase << "." << std::endl;
     }
 
     return 0;
