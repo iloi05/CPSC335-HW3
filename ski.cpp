@@ -25,6 +25,10 @@ int main() {
     int skiRental = 100;
     int skiPurchase = 250;
     int rentCost = days * skiRental;
+
+    std::cout << "Cost of renting skis for " << days << " days: $" << rentCost << std::endl;
+    std::cout << "Cost of purchasing skis: $" << skiPurchase << std::endl;
+    std::cout << "You are planning to go skiing for " << days << " days." << std::endl;
     if (skiCost(days, skiRental, skiPurchase)) {
         std::cout << "It is cheaper to rent skis for " << days << " days"
                   << " for $" << rentCost << std::endl;
